@@ -125,8 +125,5 @@
         }
         window.Tpl_pageSettings = Tpl_pageSettings;
     })(window);
-
-
-
  
 </script>
