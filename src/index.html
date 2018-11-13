@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>h5宣传页自动化生成平台</title>
+    <link href="lib/layui/css/layui.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+</head>
+
+<body>
+    <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://s4.ssl.qhres.com/!3a165223/baiduTemplate.js"></script>
+    <script src="lib/common.js"></script>
+    <script src="lib/layui/layui.js"></script>
+    @@include('tpl/pageSettings.tpl')
+
+
+    <div class="layui-row header">
+        <div class="layui-col-md8 logo">
+            <div>H5自动化生成平台</div>
+        </div>
+        <div class="layui-col-md4">
+            <div class="layui-col-md3 nav-item">
+                <i class="layui-icon layui-icon-set"></i> 设置
+            </div>
+            <div class="layui-col-md3 nav-item">
+                <i class="layui-icon layui-icon-home"></i> 背景
+            </div>
+            <div class="layui-col-md3 nav-item">
+                <i class="layui-icon layui-icon-cellphone"></i> 预览
+            </div>
+            <div class="layui-col-md3 nav-item">
+                <i class="layui-icon layui-icon-release"></i> 发布
+            </div>
+        </div>
+    </div>
+    <div class="layui-row  main">
+        <div class="layui-col-md2 left">
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;">组件</a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="javascript:;">
+                                <i class="layui-icon layui-icon-picture"></i> 图片
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;">
+                                <i class="layui-icon layui-icon-face-smile"></i> 按钮
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;">
+                                <i class="layui-icon layui-icon-reply-fill"></i> 文本
+                            </a>
+                        </dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">功能</a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="javascript:;">
+                                <i class="layui-icon layui-icon-face-smile"></i> 打点
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;">
+                                <i class="layui-icon layui-icon-face-smile"></i> 分享
+                            </a>
+                        </dd>
+                        <dd>
+                            <a href="">
+                                <i class="layui-icon layui-icon-face-smile"></i> 下载
+                            </a>
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+        <!-- 页面 -->
+        <div class="layui-col-md7 content">
+            <div class="content-info">
+                页面尺寸：360*640
+            </div>
+            <div class="content-page">
+                <!-- 渲染的页面区域 -->
+                <div id="content_html">
+                    <!-- 背景图片 -->
+                    <img style="display: none;" src="https://p1.ssl.qhimg.com/t011ba76fa82e693ee6.png" id="img_page_bg" />
+                </div>
+            </div>
+        </div>
+
+        <!-- 容器——组件选项  -->
+        <div id="container_right" class="layui-col-md3 right">
+        </div>
+    </div>
+
+    <script> 
+        $(function () {
+            (function (window, undefined) {
+                layui.config({
+                    base: '/js/' //你存放新模块的目录，注意，不是layui的模块目录
+                }).use('index'); //加载入口
+            })(window, undefined);
+
+        });
+    </script>
+
+</body>
+
+</html>

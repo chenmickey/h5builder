@@ -1,0 +1,5 @@
+.DS_Store
+dev/
+node_modules/
+npm-debug.log
+.editorconfig
