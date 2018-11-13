@@ -9,8 +9,8 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">页面模式</label>
                     <div class="layui-input-block">
-                        <input type="radio" name="pagesettingsMod" value="普通" title="普通" <%=window.pageConfig.html.mod=='普通'?'checked':'' %>  />
-                        <input type="radio" name="pagesettingsMod" value="全屏" title="全屏"  <%=window.pageConfig.html.mod=='全屏'?'checked':'' %> />
+                        <input type="radio"  lay-filter="pagesettingsMod" name="pagesettingsMod" value="普通" title="普通" <%=window.pageConfig.html.mod=='普通'?'checked':'' %>  />
+                        <input type="radio" lay-filter="pagesettingsMod" name="pagesettingsMod" value="全屏" title="全屏"  <%=window.pageConfig.html.mod=='全屏'?'checked':'' %> />
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -57,6 +57,7 @@
             //根据选项，渲染页面
             renderPage:function(){
                 //背景图片
+                $('#pageSettings_img').attr('src',pageConfig.html.background_img);
                 if(pageConfig.html.background_img){
                     this.$pageBg.attr('src',pageConfig.html.background_img);
                     this.$pageBg.show();
@@ -78,7 +79,7 @@
                     //普通模式
                     this.$page.css({
                        "width":"100%",
-                       "height":"auto",
+                       "height":"100%",
                        "overflow-y":"auto"
                     });
                     this.$pageBg.css({
@@ -103,13 +104,33 @@
 
             },
             addEvent:function(){
+                var that = this;
                 this.colorpicker.render({
                     elem: '#pageSettings_color',
                     color:pageConfig.html.background_color,
-                    change: function (color) {
-                        console.log(color);
+                    change:function(color){
+                        pageConfig.html.background_color = color;
+                       that.renderPage();
+                    },
+                    done: function (color) {
+                       if(color==''){
+                        pageConfig.html.background_color = color;
+                        that.renderPage();
+                       }
                     }
                 });
+               //页面模式
+               this.form.on('radio(pagesettingsMod)',function(data){
+                    pageConfig.html.mod = data.value;   
+                    that.renderPage();
+               });
+               //背景图片
+               $('#pageSettings_img_url').blur(function(){
+                   var value = $('#pageSettings_img_url').val();
+                   pageConfig.html.background_img = value;
+                   that.renderPage();
+               })
+
             },
             init: function (container,data) {
                 this.$page = $('#content_html');
