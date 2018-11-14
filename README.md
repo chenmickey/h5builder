@@ -40,3 +40,8 @@
 ## 四、备注
 ### 模板文档：https://www.npmjs.com/package/gulp-file-include
 ### https://s4.ssl.qhres.com/!9259ca14/flexible.js"
+
+
+
+http://h5.mse.360.cn/neihe.html
+http://h5.mse.360.cn/redpacket_bg.html

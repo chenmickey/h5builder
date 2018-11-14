@@ -7,25 +7,21 @@ layui.define(['layer', 'form', 'element','colorpicker'], function (exports) {
     var layer = layui.layer,
         form = layui.form;
 
+
     //逻辑代码    
     function MyCode_Index(){
         this.init();
     }
     MyCode_Index.prototype ={
+        addEvent:function(){
 
-        //加载模板组件
-        renderTpl:function(container,bdt_script,data,callback){
-            var bt = baidu.template;
-            var chtml = bt(bdt_script,data);
-            $(container).html(chtml);
-            form.render();
-            callback(layui);
         },
-
         init:function(){
-            console.log(pageConfig);
+            console.log(pageData);
             new Tpl_pageSettings(layui,'#container_right',{data:1});
-
+            var $btn= new Tpl_button('#content_html',1,tplDefaultConfig.button);
+            
+            console.log($btn);
         }
     };
     new MyCode_Index();

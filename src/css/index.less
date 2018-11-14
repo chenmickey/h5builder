@@ -80,6 +80,13 @@
                 position: relative;
                 overflow-x: hidden;
                 overflow-y:auto;
+                &::-webkit-scrollbar{
+                    width:0;
+                }
+                &::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+                    border-radius: 5px;
+                    background-color: #C0C0C0;                   
+                }
             }
         }
         
