@@ -18,9 +18,9 @@ layui.define(['layer', 'form', 'element','colorpicker'], function (exports) {
         },
         init:function(){
             console.log(pageData);
-            new Tpl_pageSettings(layui,'#container_right',{data:1});
+            //new Tpl_pageSettings(layui,'#container_right',{data:1});
             var $btn= new Tpl_button('#content_html',1,tplDefaultConfig.button);
-            
+            new Tpl_buttonSettings(layui,'#container_right',{data:1});
             console.log($btn);
         }
     };
